@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs')
 
-const mongoose = require('../config/database');
+const mongoose = require('../../config/database');
 
 const UserSchema = new mongoose.Schema({
     name: {
