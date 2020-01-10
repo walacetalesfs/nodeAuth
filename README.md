@@ -11,5 +11,24 @@
   `npm install` e logo em seguida` node src/index.js`
   
 ## Endpoints:
-  * localhost:3000/auth/register 
-  * localhost:3000/auth/authenticate
+
+**Registrar** `POST` `application/json`
+ 
+*  **URL:** `/auth/register` 
+  
+*  **Parâmetros:**
+```
+    {
+      "name": "example",
+      "email": "example@example.com",
+      "password": "examplepassword"
+    }
+ ```
+
+* **Responses:**
+  + status: 200 <br>
+    content: `{ token : '{{token}}' }`<br>
+  + status: 400 <br>
+    content: `{ error: 'email de usuário já existe' }`<br>
+  + status: 400 <br>
+    content: `{ error : 'falha ao registrar' }`
