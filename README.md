@@ -16,14 +16,7 @@
  
 *  **URL:** `/auth/register` 
   
-*  **Parâmetros:**
-```
-    {
-      "name": "example",
-      "email": "example@example.com",
-      "password": "examplepassword"
-    }
- ```
+*  **Parâmetros:**<br>`{ "name": "example", "email": "example@example.com", "password": "examplepassword"}`
 
 * **Responses:**
   + status: 200 <br>
@@ -32,3 +25,50 @@
     content: `{ error: 'email de usuário já existe' }`<br>
   + status: 400 <br>
     content: `{ error : 'falha ao registrar' }`
+
+
+**Autenticar** `POST` `application/json`
+ 
+*  **URL:** `/auth/authenticate` 
+  
+*  **Parâmetros:** <br>`{ "email": "example@example.com", "password": "examplepassword"}`
+
+* **Responses:**
+  + status: 200 <br>
+    content: `{ token : '{{token}}' }`<br>
+  + status: 400 <br>
+    content: `{ error: 'usuário não encontrado' }`<br>
+  + status: 400 <br>
+    content: `{ error: 'senha inválida' }`<br>
+
+**Esqueci a Senha** `POST` `application/json`
+ 
+*  **URL:** `/auth/forgot_password` 
+  
+*  **Parâmetros:** <br>`{ "email": "example@example.com"}`
+
+* **Responses:**
+  + status: 200 <br>
+  + status: 400 <br>
+    content: `{ error: 'usuário não encontrado' }`<br>
+  + status: 400 <br>
+    content: `{ error: 'não foi possivel enviar o email de recuperação' }`<br>
+  + status: 400 <br>
+    content: `{ error: 'erro ao recuperar a senha' }`<br>
+
+**Nova Senha** `POST` `application/json`
+ 
+*  **URL:** `/auth/reset_password` 
+  
+*  **Parâmetros:** <br>`{ "password": "password123" }`
+
+* **Responses:**
+  + status: 200 <br>
+  + status: 400 <br>
+    content: `{ error: 'usuário não encontrado' }`<br>
+  + status: 400 <br>
+    content: `{ error: 'token inválido' }`<br>
+  + status: 400 <br>
+    content: `{ error: 'token expirado' }`<br>
+  + status: 400 <br>
+    content: `{ error: 'erro ao resetar a senha }`<br>
