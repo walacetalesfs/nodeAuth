@@ -10,4 +10,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./app/controllers/index')(app);
 
-app.listen(constants.PORT, () => { console.log(`servidor rodando em ${constants.URL}`) });
+app.listen(process.env.PORT || constants.PORT, () => { console.log(`servidor rodando em ${constants.URL}`) });
