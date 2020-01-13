@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const constants = require('../global/constants');
 
-mongoose.connect(`mongodb://${constants.HOST}/restapi`, {
+mongoose.connect(constants.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
